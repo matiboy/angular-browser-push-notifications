@@ -13,29 +13,28 @@ module.exports = (grunt) ->
   grunt.initConfig
     yeoman: yeomanConfig
 
-    
-    coffee:
+
+    copy:
       dist:
         files: [
           expand: true
           cwd: '<%= yeoman.src %>'
-          src: '{,*/}*.coffee'
+          src: '{,*/}*.js'
           dest: '<%= yeoman.dist %>'
-          ext: '.js'
         ]
     uglify:
       build:
         src: '<%=yeoman.dist %>/angular-browser-push-notifications.js'
         dest: '<%=yeoman.dist %>/angular-browser-push-notifications.min.js'
     mochaTest:
-      test: 
-        options: 
+      test:
+        options:
           reporter: 'spec'
           compilers: 'coffee:coffee-script'
         src: ['test/**/*.coffee']
 
     grunt.registerTask 'default', [
-      'mochaTest'
-      'coffee'
+      # 'mochaTest'
+      'copy'
       'uglify'
     ]
