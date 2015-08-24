@@ -1,15 +1,16 @@
 {
   "name": "angular-browser-push-notifications",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "dependencies": {},
-  "devDependencies" : {
-    "mocha" : "*",
-    "chai" : "*",
-    "sinon" : "*",
-    "grunt" : "*",
+  "devDependencies": {
+    "chai": "*",
+    "grunt": "*",
     "grunt-contrib-coffee": "*",
+    "grunt-contrib-copy": "^0.8.1",
     "grunt-contrib-uglify": "*",
+    "grunt-mocha-test": "*",
     "matchdep": "*",
-    "grunt-mocha-test": "*"
+    "mocha": "*",
+    "sinon": "*"
   }
 }
