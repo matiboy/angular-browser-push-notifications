@@ -3,6 +3,12 @@
   "description": "Enable browser push notifications using Angular",
   "main": "dist/angular-browser-push-notifications.js",
   "version": "0.1.0",
-  "dependencies": {}
+  "dependencies": {},
+  "ignore": [
+    "test",
+    "README.md",
+    "README.html",
+    "examples"
+  ]
 }
 
