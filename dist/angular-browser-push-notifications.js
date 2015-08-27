@@ -83,7 +83,9 @@ angular.module('browserPushNotifications', [])
           if(workerUrl.lastIndexOf('/') > 0) {
             $log.warn('Worker url should be at the root of the domain');
           }
-          return navigator.serviceWorker.register(workerUrl);
+          return navigator.serviceWorker.register(workerUrl).catch(function() {
+            return Promise.reject(BrowserPushNotificationsStatus.WORKER_REGISTRATION_FAIL);
+          });
         },
         _workersSupported: function() {
           return 'serviceWorker' in navigator ? Promise.resolve() : Promise.reject(BrowserPushNotificationsStatus.WORKERS_NOT_SUPPORTED);
