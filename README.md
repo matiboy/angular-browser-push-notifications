@@ -4,16 +4,17 @@ Enable browser push notifications using Angular
 ## Install
 
 ```
-bower install angular-browser-push-notifications
+ $ bower install angular-browser-push-notifications
 ```
 
 ## Pre-requisites
 
-- You must run this on a domain verified in [Google developer console](https://console.developers.google.com)
-**Important** It must be verified either using the domain registrar method or must be https
+- If you are not running on `localhost`, you must run this on a HTTPS domain verified in [Google developer console](https://console.developers.google.com)
 - If you are using https, you must ensure that the certificate is fully trusted
 - You must have a `manifest.json` file referenced in your HTML as follows
 ``` <link rel="manifest" href="manifest.json"> ```
+- You need a service worker available *at the root* of your site. See [examples](./examples) for sample manifest and service workers
+- Refer to [this article](https://developers.google.com/web/updates/2015/03/push-notificatons-on-the-open-web) for more information on Chrome push notifications
 
 ## How to use
 
@@ -53,6 +54,12 @@ Possible reasons for failure:
 - WORKER_REGISTRATION_FAIL: Worker registration failed, usually related to invalid certificate
 - FAILED_TO_SUBSCRIBE: Subscription failed, could be related to certificate or to your application key
 
+## Configuration methods
+
+### BrowserPushNotificationsProvider.setWorkerUrl
+
+Set the url for the service worker which will be registered
+
 ## Sample code
 
 ```js
@@ -69,9 +76,7 @@ angular.module('notificationsApp', ['browserPushNotifications'])
 
 ## Demo
 
-[Demo site](https://anacondapp.cloudapp.net)
-
-*Note* that you need to **trust** the certificate for this demo to work.
+[Demo site](https://www.redapesolutions.com/pushnotifications)
 
 
 
